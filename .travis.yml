@@ -1,0 +1,37 @@
+language: python  #设置语言
+cache: pip
+
+python: 3.6
+
+branches:
+    only:
+      - master
+
+before_script:
+    - git config --global user.name 'cutelittleturtle'
+    - git config --global user.email '31291893+cutelittleturtle@users.noreply.github.com'
+
+script:
+  - python -m pip install lxml
+  - python -m pip install requests
+  - python -m pip install bs4
+  - python run_update.py  #更新
+
+after_script:
+    - mkdir .deploy                   # Create a folder to use for teh pages branch
+    - cd .deploy
+    - cp ../index.html .
+    - git clone --depth 1 --branch gh-pages --single-branch $DEPLOY_REPO . || (git init && git remote add -t gh-pages origin $DEPLOY_REPO)
+    - git -rf ./*
+    - cp ../index.html .
+    - cp -r ../source/ .
+    - cp ../.nojekyll .
+    - git add -A .
+    - git commit -m 'timeline updated'    # Make a new commit for new version
+    - git branch -m gh-pages
+    - git push -q -f -u origin gh-pages  # Push silently so we don't leak information
+
+env:
+  global:
+   - GH_REF: github.com/cutelittleturtle/timelineYBY.git  #设置GH_REF，注意更改yourname
+   - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}

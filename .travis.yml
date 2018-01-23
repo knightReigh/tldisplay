@@ -8,8 +8,8 @@ branches:
       - master
 
 before_script:
-    - git config --global user.name 'cutelittleturtle'
-    - git config --global user.email '31291893+cutelittleturtle@users.noreply.github.com'
+    - git config --global user.name "$TARGET_USERNAME"
+    - git config --global user.email "$TARGET_EMAIL"
 
 script:
   - python -m pip install lxml
@@ -33,5 +33,4 @@ after_script:
 
 env:
   global:
-   - GH_REF: github.com/cutelittleturtle/timelineYBY.git  #设置GH_REF，注意更改yourname
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}

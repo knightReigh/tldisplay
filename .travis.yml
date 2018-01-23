@@ -29,9 +29,11 @@ after_script:
     - git commit -m 'timeline updated'    # Make a new commit for new version
     - git branch -m gh-pages
     - git push -q -f -u origin gh-pages  # Push silently so we don't leak information
-    - rm -rf *
-    - rm -rf .git
+    - cd ..
+    - rm -rf .deploy
     
+    - mkdir .deploy
+    - cd .deploy
     - git config --global user.name "$Gitee_USERNAME" # push to Gitee repository as well
     - git config --global user.email "$Gitee_EMAIL"
     - git clone --depth 1 --branch master --single-branch $Gitee_REPO . || (git init && git remote add -t master origin $Gitee_REPO)

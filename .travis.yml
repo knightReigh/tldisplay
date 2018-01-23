@@ -49,4 +49,4 @@ after_script:
 env:
   global:
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}
-   - Gitee_REPO: https://${Gitee_REF}?private_token=${Gitee_TOKEN}
+   - Gitee_REPO: https://${Gitee_REF}?private_token={$Gitee_TOKEN}

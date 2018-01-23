@@ -21,7 +21,7 @@ after_script:
     - mkdir .deploy                   # Create a folder to use for teh pages branch
     - cd .deploy
     - git clone --depth 1 --branch gh-pages --single-branch $DEPLOY_REPO . || (git init && git remote add -t gh-pages origin $DEPLOY_REPO)
-    - git -rf ./*
+    - rm -rf ./*
     - cp ../index.html .
     - cp -r ../source/ .
     - cp ../.nojekyll .
@@ -34,7 +34,7 @@ after_script:
     - git config --global user.name "$Gitee_USERNAME" # push to Gitee repository as well
     - git config --global user.email "$Gitee_EMAIL"
     - git clone --depth 1 --branch master --single-branch $Gitee_REPO . || (git init && git remote add -t master origin $Gitee_REPO)
-    - git -rf ./*
+    - rm -rf ./*
     - cp ../index.html .
     - cp -r ../source/ .
     - cp ../.nojekyll .

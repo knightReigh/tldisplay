@@ -30,6 +30,7 @@ after_script:
     - git branch -m gh-pages
     - git push -q -f -u origin gh-pages  # Push silently so we don't leak information
     - rm -rf *
+    - rm -rf .git
     
     - git config --global user.name "$Gitee_USERNAME" # push to Gitee repository as well
     - git config --global user.email "$Gitee_EMAIL"

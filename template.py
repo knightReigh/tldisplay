@@ -40,7 +40,7 @@ def template_PinkStar(timecards, weibo_url, ignore_retweet=True):
         if ignore_retweet and timecards.content[i].startswith('转发'):
             continue
         else:
-	    RightDirection = timecards.content[i].startswith('转发')
+	    RightDirection = true if timecards.content[i].startswith('转发') else false
             meta_string = ("点赞：" + str(timecards.meta[i]['up_num']) + " 转发：" + str(timecards.meta[i]['retweet_num'])
                             + " 评论：" + str(timecards.meta[i]['comment_num']))
             time_string = (timecards.time[i][:4] + '年' + timecards.time[i][4:6] + '月' + timecards.time[i][6:8] + '日'

@@ -6,6 +6,12 @@ header:after, #timeline .timeline-item:after, header:before, #timeline .timeline
   clear: both;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;

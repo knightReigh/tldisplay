@@ -8,6 +8,7 @@ header:after, #timeline .timeline-item:after, header:before, #timeline .timeline
 
 header {
   position: fixed;
+  top: 0px;
   width: 100%;
   z-index: 999;
 }
@@ -93,6 +94,7 @@ header .social .btn {
   -moz-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  top: 20px;
 }
 #timeline:before {
   content: "";

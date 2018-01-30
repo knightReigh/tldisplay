@@ -20,32 +20,17 @@ script:
 after_script:
     - mkdir .deploy                   # Create a folder to use for teh pages branch
     - cd .deploy
-    - git clone --depth 1 --branch gh-pages --single-branch $DEPLOY_REPO . || (git init && git remote add -t gh-pages origin $DEPLOY_REPO)
-    - rm -rf ./*
+    - git init
+    - git config user.name "$TARGET_USERNAME"
+    - git config user.email "$TARGET_EMAIL"
     - cp ../index.html .
     - cp -r ../source/ .
     - cp ../.nojekyll .
-    - git add -A .
+    - git add .
     - git commit -m 'timeline updated'    # Make a new commit for new version
-    - git branch -m gh-pages
-    - git push -q -f -u origin gh-pages  # Push silently so we don't leak information
+    - git push -q -f $DEPLOY_REPO -u origin master:gh-pages  # Push silently so we don't leak information
     - cd ..
-    - rm -rf .deploy
     
-    - mkdir .deploy
-    - cd .deploy
-    - git config --global user.name "$Gitee_USERNAME" # push to Gitee repository as well
-    - git config --global user.email "$Gitee_EMAIL"
-    - git clone --depth 1 --branch master --single-branch $Gitee_REPO . || (git init && git remote add -t master origin $Gitee_REPO)
-    - rm -rf ./*
-    - cp ../index.html .
-    - cp -r ../source/ .
-    - cp ../.nojekyll .
-    - git add -A .
-    - git commit -m 'timeline updated'    # Make a new commit for new version
-    - git branch -m master
-    - git push -q -f -u origin master  # Push silently so we don't leak information    
-
 env:
   global:
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}

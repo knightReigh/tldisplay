@@ -15,24 +15,8 @@ script:
   - python -m pip install lxml
   - python -m pip install requests
   - python -m pip install bs4
-  - python run_update.py  #更新
-
-after_script:
-    - mkdir .deploy                   # Create a folder to use for teh pages branch
-    - cd .deploy
-    - git clone --depth 1 --branch gh-pages --single-branch $DEPLOY_REPO . || (git init && git remote add -t gh-pages origin $DEPLOY_REPO)
-    - rm -rf ./*
-    - cp ../index.html .
-    - cp -r ../source/ .
-    - cp ../.nojekyll .
-    - git add -A .
-    - git commit -m 'timeline updated'    # Make a new commit for new version
-    - git branch -m gh-pages
-    - git push -q -f -u origin gh-pages  # Push silently so we don't leak information
-    - cd ..
-    - rm -rf .deploy
+  - python initialize_newuser.py
   
-
 env:
   global:
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}

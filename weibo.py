@@ -361,6 +361,17 @@ class Weibo:
         working_path = os.getcwd() + os.path.sep + "weibo" + os.path.sep + str(self.user['user_id'])
         utilities.check_backup(working_path)
 
+    def start(self):
+        try:
+            self.get_user()
+            self.get_weibo()
+            self.check_backup()
+            self.write_txt()
+            self.write_imgref_list()
+        except Exception as e:
+            print(e)
+            traceback.print_exc()        
+        
     def update(self):
         try:
             weibo_file = (os.getcwd() + os.path.sep + "weibo" + os.path.sep + str(self.user['user_id'])

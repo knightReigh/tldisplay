@@ -28,4 +28,4 @@ from timeline import build_timeline
 build_timeline(user_id[0], template_name="PinkStar")
 
 # 创建新的timeline 冯晓菲
-build_timeline(user_id[1], template_name="PinkStar_dark")
+build_timeline(user_id[1], template_name="PinkStarReverse")

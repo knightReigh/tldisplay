@@ -10,6 +10,7 @@ import sys
 from template import *
 from utilities import reformat_time
 from utilities import read_weibo_file
+from utilities import copytree
 
 class timecard:
 
@@ -38,7 +39,7 @@ class timecard:
 
 
 
-def template_wrapper(timecards, template_name, ignore_retweet=True):
+def template_wrapper(dest_path, timecards, template_name, ignore_retweet=True):
     """ wrapper function to apply timeline tempalte to timecards
     """
     template_path = os.getcwd() + os.path.sep + "timeline_templates" + os.path.sep + template_name
@@ -63,8 +64,10 @@ def template_wrapper(timecards, template_name, ignore_retweet=True):
 
     html_content = header_string + body_string + tail_string
 
-    with open(os.getcwd() + os.path.sep + "index.html", 'wt', encoding='utf-8') as f:
+    with open(dest_path + os.path.sep + "index.html", 'wt', encoding='utf-8') as f:
         f.write(html_content)
+    
+    copytree(template_path + os.path.sep + "source", dest_path + os.path.sep + "source")
 
 def build_timeline(user_id, template_name="PinkStar"):
     """ source_path = os.getcwd() + '/weibo/weibo_id/'
@@ -84,4 +87,5 @@ def build_timeline(user_id, template_name="PinkStar"):
     ignore_retweet = True
 
     # choose template
-    template_wrapper(timecards, template_name, ignore_retweet)
+    dest_path = os.getcwd() + os.path.sep + "dist" + os.path.sep + str(user_id)
+    template_wrapper(dest_path, timecards, template_name, ignore_retweet)

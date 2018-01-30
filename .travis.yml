@@ -17,7 +17,20 @@ script:
   - python -m pip install bs4
   - python initialize_newuser.py
   
+after_script:
+    - mkdir .deploy                   # Create a folder to use for teh pages branch
+    - cd .deploy
+    - git clone --depth 1 --branch master --single-branch $DEPLOY_REPO . || (git init && git remote add -t master origin $DEPLOY_REPO)
+    - rm -rf ./*
+    - cp ../* .
+    - git add -A .
+    - git commit -m 'add new user'    # Make a new commit for new version
+    - git branch -m master
+    - git push -q -f -u origin master  # Push silently so we don't leak information
+    - cd ..
+    - rm -rf .deploy
+  
+
 env:
   global:
    - DEPLOY_REPO: https://${GH_TOKEN}@${GH_REF}
-   - Gitee_REPO: https://${Gitee_TOKEN}@${Gitee_REF}

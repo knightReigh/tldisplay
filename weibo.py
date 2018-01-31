@@ -63,8 +63,8 @@ class Weibo:
             try:
                 r = requests.get(url,cookies = self.cookie)
                 if r.status_code != 200:
-                    print("Request failure: code %d" % r.status_code)
-                    return
+                    print("get_user: Request failure: code %d" % r.status_code)
+                    return r.status_code
                 else:
                     html = r.content
                 break
@@ -127,8 +127,8 @@ class Weibo:
             try:
                 r = requests.get(url,cookies = self.cookie)
                 if r.status_code != 200:
-                    print("Request failure: code %d" % r.status_code)
-                    return
+                    print("get_weibo: Request failure: code %d" % r.status_code)
+                    return r.status_code
                 else:
                     html = r.content
                 break
@@ -389,18 +389,22 @@ class Weibo:
             self.get_weibo_from_file(weibo_file)
             old_length = len(self.weibo)
 
-            self.get_user() # 更新用户信息
-            UPDATE_OLDTIME = self.weibo[1]['publish_time']
-            self.weibo = self.weibo[1:] # 去掉置顶微博
+            status_code = self.get_user() # 更新用户信息
+            if status_code == 200:
+                UPDATE_OLDTIME = self.weibo[1]['publish_time']
+                self.weibo = self.weibo[1:] # 去掉置顶微博
 
-            self.get_weibo(UPDATE=True, UPDATE_OLDTIME=UPDATE_OLDTIME)
-            new_length = len(self.weibo)
+            status_code = self.get_weibo(UPDATE=True, UPDATE_OLDTIME=UPDATE_OLDTIME)
 
-            self.check_backup()
-            self.write_txt() # update txt file
-            self.write_imgref_list() # update imgref_list
+            if status_code == 200:
+                new_length = len(self.weibo)
+                self.check_backup()
+                self.write_txt() # update txt file
+                self.write_imgref_list() # update imgref_list
+                print("旧微博数: %d, 新微博数: %d\n" % (old_length, new_length))
+            else:
+                print("微博request失败，不读取新数据")
 
-            print("旧微博数: %d, 新微博数: %d\n" % (old_length, new_length))
         except Exception as e:
             print(e)
             traceback.print_exc()

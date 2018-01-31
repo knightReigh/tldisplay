@@ -110,6 +110,8 @@ class Weibo:
             print(e)
             traceback.print_exc()
 
+        return 200
+
     def get_weibo(self, UPDATE=False, UPDATE_OLDTIME=datetime.now().strftime('%Y-%m-%d %H:%M')):
         # 读取每条微博信息
         #   分times次读取，中途停顿，避免短时间访问次数过多
@@ -271,6 +273,7 @@ class Weibo:
             print("共" + str(self.weibo_num) + "条微博,其中"
                     + str(self.weibo_num2) + "为原创微博")
 
+        return 200
 
     # 输出微博内容
     def write_txt(self):
@@ -390,20 +393,18 @@ class Weibo:
             old_length = len(self.weibo)
 
             status_code = self.get_user() # 更新用户信息
-            if status_code == 200:
-                UPDATE_OLDTIME = self.weibo[1]['publish_time']
-                self.weibo = self.weibo[1:] # 去掉置顶微博
 
+            UPDATE_OLDTIME = self.weibo[1]['publish_time']
             status_code = self.get_weibo(UPDATE=True, UPDATE_OLDTIME=UPDATE_OLDTIME)
-
             if status_code == 200:
+                self.weibo = self.weibo[1:] # 去掉置顶微博
                 new_length = len(self.weibo)
                 self.check_backup()
                 self.write_txt() # update txt file
                 self.write_imgref_list() # update imgref_list
                 print("旧微博数: %d, 新微博数: %d\n" % (old_length, new_length))
             else:
-                print("微博request失败，不读取新数据")
+                print("微博request失败，不读取新数据 code %d" % status_code)
 
         except Exception as e:
             print(e)

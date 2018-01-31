@@ -58,7 +58,7 @@ h1, h2, h3, h4 {
 }
 
 header {
-  background: #a03b3b;
+  background: #2b2e48;
   padding: 10px;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -66,14 +66,14 @@ header {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
 }
 header .logo {
-  color: #101013;
+  color: #ee4d4d;
   float: left;
   font-family: "Dosis", arial, tahoma, verdana;
   font-size: 22px;
   font-weight: 500;
 }
 header .logo > span {
-  color: #212331;
+  color: #f7aaaa;
   font-weight: 300;
 }
 header .social {

@@ -370,8 +370,8 @@ class Weibo:
             self.write_imgref_list()
         except Exception as e:
             print(e)
-            traceback.print_exc()        
-        
+            traceback.print_exc()
+
     def update(self):
         try:
             weibo_file = (os.getcwd() + os.path.sep + "weibo" + os.path.sep + str(self.user['user_id'])

@@ -58,7 +58,7 @@ h1, h2, h3, h4 {
 }
 
 header {
-  background: #2b2e48;
+  background: #ee4d4d;
   padding: 10px;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -66,14 +66,14 @@ header {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
 }
 header .logo {
-  color: #ee4d4d;
+  color: #101013;
   float: left;
   font-family: "Dosis", arial, tahoma, verdana;
   font-size: 22px;
   font-weight: 500;
 }
 header .logo > span {
-  color: #f7aaaa;
+  color: #212331;
   font-weight: 300;
 }
 header .social {
@@ -100,7 +100,7 @@ header .social .btn {
   content: "";
   width: 3px;
   height: 100%;
-  background: #ee4d4d;
+  background: #2e3146;
   left: 50%;
   top: 0;
   position: absolute;
@@ -116,7 +116,7 @@ header .social .btn {
   position: relative;
 }
 #timeline .timeline-item .timeline-icon {
-  background: #ee4d4d;
+  background: #2b2e48;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -153,7 +153,7 @@ header .social .btn {
 }
 #timeline .timeline-item .timeline-content h2 {
   padding: 15px;
-  background: #ee4d4d;
+  background: #2b2e48;
   color: #fff;
   margin: -20px -20px 0 -20px;
   font-weight: 300;
@@ -171,7 +171,7 @@ header .social .btn {
   height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
-  border-left: 7px solid #ee4d4d;
+  border-left: 7px solid #2b2e48;
 }
 #timeline .timeline-item .timeline-content.right {
   float: right;
@@ -181,15 +181,15 @@ header .social .btn {
   right: 45%;
   left: inherit;
   border-left: 0;
-  border-right: 7px solid #ee4d4d;
+  border-right: 7px solid #2b2e48;
 }
 
 .btn {
   padding: 5px 15px;
   text-decoration: none;
   background: transparent;
-  border: 2px solid #f27c7c;
-  color: #f27c7c;
+  border: 2px solid #2e3146;
+  color: #2e3146;
   display: inline-block;
   position: relative;
   text-transform: uppercase;
@@ -202,10 +202,10 @@ header .social .btn {
   -moz-transition: background 0.3s ease;
   -ms-transition: background 0.3s ease;
   transition: background 0.3s ease;
-  -webkit-box-shadow: 2px 2px 0 #f27c7c;
-  -moz-box-shadow: 2px 2px 0 #f27c7c;
-  -ms-box-shadow: 2px 2px 0 #f27c7c;
-  box-shadow: 2px 2px 0 #f27c7c;
+  -webkit-box-shadow: 2px 2px 0 #2e3146;
+  -moz-box-shadow: 2px 2px 0 #2e3146;
+  -ms-box-shadow: 2px 2px 0 #2e3146;
+  box-shadow: 2px 2px 0 #2e3146;
 }
 .btn:hover {
   box-shadow: none;
@@ -234,7 +234,7 @@ header .social .btn {
     left: 10%;
     margin-left: -6px;
     border-left: 0;
-    border-right: 7px solid #ee4d4d;
+    border-right: 7px solid #2e3146;
   }
   #timeline .timeline-item .timeline-icon {
     left: 0;

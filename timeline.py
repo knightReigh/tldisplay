@@ -59,7 +59,7 @@ def template_wrapper(dest_path, timecards, template_name, ignore_retweet=True):
 
     # build body
     body_string = ""
-    if template_name == "PinkStar":
+    if template_name == "PinkStar" or "PinkStarReverse":
         body_string = template_PinkStar(timecards,"https://weibo.com/u/5491331848", ignore_retweet)
 
     html_content = header_string + body_string + tail_string

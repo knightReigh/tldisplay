@@ -12,7 +12,7 @@ from config import connection_timeout
 from config import pause_interval
 from config import pause_time
 
-# 更新微博: 杨冰怡
+# 更新微博
 for _id in user_id:
     w = Weibo(_id,filter=0)
     w.set_cookie(cookie)
@@ -21,11 +21,10 @@ for _id in user_id:
     w.pause_time = pause_time
     w.update()
 
-# 更新微博: 冯晓菲
 
 # 创建新的timeline 杨冰怡
 from timeline import build_timeline
-build_timeline(user_id[0], template_name="PinkStar")
+build_timeline(int(user_id[0]), template_name="PinkStar")
 
 # 创建新的timeline 冯晓菲
-build_timeline(user_id[1], template_name="PinkStarReverse")
+build_timeline(int(user_id[1]), template_name="PinkStarReverse")

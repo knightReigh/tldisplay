@@ -85,6 +85,12 @@ header .social .btn {
   font-family: "Dosis";
   font-size: 14px;
   margin: 10px 5px;
+  border: 2px solid #f7aaaa;
+  color: #f7aaaa;
+  -webkit-box-shadow: 2px 2px 0 #f7aaaa;
+  -moz-box-shadow: 2px 2px 0 #f7aaaa;
+  -ms-box-shadow: 2px 2px 0 #f7aaaa;
+  box-shadow: 2px 2px 0 #f7aaaa;
 }
 
 #timeline {

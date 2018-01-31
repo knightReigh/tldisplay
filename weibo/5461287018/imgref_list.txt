@@ -1,7 +1,7 @@
 1, 
 1, 
-2, http://weibo.cn/mblog/oripic?id=G0xXxpoz5&u=005XB0euly1fnwqc3dwsvj32ds1sgkjl
-2, http://weibo.cn/mblog/picAll/G0xXxpoz5?rl=1
+2, 
+2, 
 3, 
 3, 
 4, 
@@ -938,11 +938,3 @@
 469, 
 470, 
 470, 
-471, 
-471, 
-472, 
-472, 
-473, 
-473, 
-474, 
-474, 

@@ -25,6 +25,8 @@ body, html {
 
 body {
   background: #f9f9f9;
+  background-image: url("../image/background.jpg");
+  background-attachment: fixed;
   background-size: cover;
   margin: 0;
   padding: 0;

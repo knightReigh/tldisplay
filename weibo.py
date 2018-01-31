@@ -61,7 +61,12 @@ class Weibo:
         start_time = time.time()
         while True:
             try:
-                html = requests.get(url,cookies = self.cookie).content
+                r = requests.get(url,cookies = self.cookie)
+                if r.status_code != 200:
+                    print("Request failure: code %d" % r.status_code)
+                    return
+                else:
+                    html = r.content
                 break
             except Exception as e:
                 if time.time() > start_time + self.connection_timeout:
@@ -120,7 +125,12 @@ class Weibo:
         start_time = time.time()
         while True:
             try:
-                html = requests.get(url,cookies = self.cookie).content
+                r = requests.get(url,cookies = self.cookie)
+                if r.status_code != 200:
+                    print("Request failure: code %d" % r.status_code)
+                    return
+                else:
+                    html = r.content
                 break
             except Exception:
                 if time.time() > start_time + self.connection_timeout:

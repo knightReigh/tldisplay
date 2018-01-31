@@ -66,7 +66,7 @@ def template_wrapper(dest_path, timecards, template_name, ignore_retweet=True):
 
     with open(dest_path + os.path.sep + "index.html", 'wt', encoding='utf-8') as f:
         f.write(html_content)
-    
+
     copytree(template_path + os.path.sep + "source", dest_path + os.path.sep + "source")
 
 def build_timeline(user_id, template_name="PinkStar"):
@@ -88,4 +88,6 @@ def build_timeline(user_id, template_name="PinkStar"):
 
     # choose template
     dest_path = os.getcwd() + os.path.sep + "dist" + os.path.sep + str(user_id)
+    if not os.path.isdir(dest_path):
+        os.makedirs(dest_path)
     template_wrapper(dest_path, timecards, template_name, ignore_retweet)

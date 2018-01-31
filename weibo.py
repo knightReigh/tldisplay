@@ -260,7 +260,7 @@ class Weibo:
                         else:
                             self.weibo = update_cache + self.weibo
                             print("共更新%d条微博" % (update_count-1))
-                            return
+                            return 200
                     else:
                         self.weibo.append(weibo_instance)
                         self.weibo_num2 += 1

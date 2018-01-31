@@ -152,6 +152,10 @@ class Weibo:
         pause_interval = self.pause_interval
         pause_num = 1
 
+        # 如果更新微博，首先去掉置顶微博
+        if UPDATE:
+            self.weibo = self.weibo[1:]
+
         for page in range(1,page_num + 1):
 
             # 周期停顿
@@ -397,7 +401,6 @@ class Weibo:
             UPDATE_OLDTIME = self.weibo[1]['publish_time']
             status_code = self.get_weibo(UPDATE=True, UPDATE_OLDTIME=UPDATE_OLDTIME)
             if status_code == 200:
-                self.weibo = self.weibo[1:] # 去掉置顶微博
                 new_length = len(self.weibo)
                 self.check_backup()
                 self.write_txt() # update txt file

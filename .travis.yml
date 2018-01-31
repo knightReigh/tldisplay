@@ -22,8 +22,8 @@ after_script:
     - cd .deploy
     - git clone --depth 1 --branch gh-pages --single-branch $DEPLOY_REPO . || (git init && git remote add -t gh-pages origin $DEPLOY_REPO)
     - rm -rf ./*
-    - cp ../index.html .
-    - cp -r ../source/ .
+    - cp ../dist/5491331848/index.html .
+    - cp -r ../dist/5491331848//source/ .
     - cp ../.nojekyll .
     - git add -A .
     - git commit -m 'timeline updated'    # Make a new commit for new version

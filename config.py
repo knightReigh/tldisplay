@@ -12,8 +12,5 @@ pause_time = 5 # 读取停顿时长,秒
 
 # 图片后缀名
 image_format = ['jpg','bmp','jpeg','svg','gif','png','tiff','exif', \
-               'JPG', 'BMP','JPEG','SVG','GIF','PNG','TIFF','Exif','WebP']
-
+                'JPG', 'BMP','JPEG','SVG','GIF','PNG','TIFF','Exif','WebP']
 line_to_buffer = 20 # img_list,每_行写入文件
-
-new_cookie = {"Cookie":""}

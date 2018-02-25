@@ -11,6 +11,7 @@ from template import *
 from utilities import reformat_time
 from utilities import read_weibo_file
 from utilities import copytree
+from config import weibo_urls
 
 class timecard:
 
@@ -59,9 +60,11 @@ def template_wrapper(dest_path, timecards, template_name, ignore_retweet=True):
 
     # build body
     body_string = ""
-    if template_name == "PinkStar" or "PinkStarReverse":
-        body_string = template_PinkStar(timecards,"https://weibo.com/u/5491331848", ignore_retweet)
-
+    if template_name == "PinkStar"
+        body_string = template_PinkStar(timecards, weibo_urls[0], ignore_retweet)
+    if template_name == "PinkStarReverse":
+        body_string = template_PinkStar(timecards, weibo_urls[1], ignore_retweet)
+    
     html_content = header_string + body_string + tail_string
 
     with open(dest_path + os.path.sep + "index.html", 'wt', encoding='utf-8') as f:
